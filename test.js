@@ -11,15 +11,24 @@ const port= 3010;
 
 
 app.get("/", (req, res) => {
+    res.send("INICIO API . /tareas para ver todas las tareas");
 
+});
+
+app.get('/tarea/:id',  (req, res) => {
+    
+    taskController.get(req,res);
    
-    taskController.getAll();
-    res.send(`<h1> API 2024 <h1/>`);                    // como hago apirest respondo json . req es un objeto
-    
-    
-    
+});
 
-})
+
+app.get("/tareas", (req, res) => {
+
+    taskController.getAll(req,res);
+
+});
+
+
 
 
 

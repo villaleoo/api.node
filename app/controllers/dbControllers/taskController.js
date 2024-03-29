@@ -6,11 +6,25 @@ const taskModel = require ('../../models/taskModel.js');
 
 
 
-function getAll(){
+async function getAll(req,res){
     /*llamo al modelo para pedirle todas las tareas */
-    console.log('bienvenido al controlador task - getall');
-    taskModel.getAll();
+    const rows = await taskModel.getAll();
+    res.send(rows);
 
+
+}
+
+async function get(req, res) {
+    //verificaciones.
+    const row= await taskModel.get(req.params.id);
+    if(row){
+        res.send(row);
+    }else{
+        res.status(404).send(`La tarea con id=${req.params.id} no existe`);
+    }
+
+    
+    
 }
 
 
@@ -18,4 +32,5 @@ function getAll(){
 /*exporto funciones con un json */
 module.exports = {
     getAll,
+    get
 }
