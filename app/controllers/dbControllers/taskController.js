@@ -2,14 +2,14 @@
 /*modulos de js (archivos cerrados) . actua similar a objeto ocultando y mostrando metodos (metodos privados y publicos)*/ /*-> cuando no necesito herencias puedo usar modulos */
 /*CLASE PARA HACER MVC ORIENTADO A OBJETOS VS. MODULOS */ /*objeto (clase) posible para casos singleton */
 
-const taskModel = require('models/taskModel.js');+
+const taskModel = require ('../../models/taskModel.js');
 
--+
+
 
 function getAll(){
     /*llamo al modelo para pedirle todas las tareas */
-    // taskModel.getAll();
     console.log('bienvenido al controlador task - getall');
+    taskModel.getAll();
 
 }
 
