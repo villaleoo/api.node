@@ -1,5 +1,4 @@
 "use strict"
-
 const express= require('express'); 
 const bodyParse= require("body-parser");
 const app = express(); //app es una instancia de express, por lo tanto tiene funciones/metodos (get,post,put,delete)
@@ -8,7 +7,12 @@ const app = express(); //app es una instancia de express, por lo tanto tiene fun
 const taskController = require('./app/controllers/dbControllers/taskController.js');
 
 
-const port= process.env.PORT || 3010;
+//CONFIG
+const PORT= process.env.PORT || 3010;
+
+
+
+
 
 app.use(bodyParse.urlencoded({extended:true}));
 app.use(bodyParse.json());
@@ -32,12 +36,9 @@ app.get("/tareas", (req, res) => {
 });
 
 
+app.listen(PORT, () =>{
 
-
-
-app.listen(port, () =>{
-
-    console.log(`escuchando puerto ${port}`);
+    console.log(`escuchando puerto ${PORT}`);
 
 
 });
