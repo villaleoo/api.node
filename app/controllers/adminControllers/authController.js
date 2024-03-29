@@ -1,0 +1,1 @@
+/* se conecta con vista y modelo */
