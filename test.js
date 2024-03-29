@@ -1,17 +1,17 @@
 "use strict"
 
 const express= require('express'); 
-
+const bodyParse= require("body-parser");
 const app = express(); //app es una instancia de express, por lo tanto tiene funciones/metodos (get,post,put,delete)
 
 /*importo el controlador de tareas / importo los controladores de cada recurso o autenticacion que utilice en las rutas*/
 const taskController = require('./app/controllers/dbControllers/taskController.js');
 
 
-const port= 3010;
+const port= process.env.PORT || 3010;
 
-
-
+app.use(bodyParse.urlencoded({extended:true}));
+app.use(bodyParse.json());
 
 app.get("/", (req, res) => {
     res.send("INICIO API . /tareas para ver todas las tareas");
